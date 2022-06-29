@@ -1,0 +1,26 @@
+[
+    {
+        "userID": 1,
+        "user": "Petr Novák",
+        "email": "petr.novak@seznam.cz",
+        "phone": "512 485 364",
+        "twoF": true,
+        "description": "Často využívá naše služby"
+    },
+    {
+        "userID": 2,
+        "user": "Hana Šťastná",
+        "email": "hana.stastna@gmail.com",
+        "phone": "942 658 153",
+        "twoF": true,
+        "description": "Nepřeje si dostávat novinky"
+    },
+    {
+        "userID": 3,
+        "user": "Petr Skočdopole",
+        "email": "petr.skocdopole@centrum.cz",
+        "phone": "458 354 125",
+        "twoF": false,
+        "description": "Poslat nabídku"
+    }
+]

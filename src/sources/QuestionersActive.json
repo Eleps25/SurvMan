@@ -1,0 +1,26 @@
+[
+    {
+        "activeQuestID": 1,
+        "name": "Spokojenost zákazníků s novou službou",
+        "date": "01. 05. 2015 - 01. 09. 2015",
+        "asked": 50,
+        "responded": 30,
+        "description": "První výzkumný vzorek"
+    },
+    {
+        "activeQuestID": 2,
+        "name": "Celková spokojenost zákazníků",
+        "date": "01. 10. 2017 - 01. 12. 2017",
+        "asked": 63,
+        "responded": 19,
+        "description": "Jak jsou zákaznici spokojeni s našimi službami"
+    },
+    {
+        "activeQuestID": 3,
+        "name": "Využívanost nové služby",
+        "date": "05. 04. 2012 - 28. 09. 2012",
+        "asked": 150,
+        "responded": 134,
+        "description": "Jak využívají uživatelé novou službu, četnost, odezva"
+    }
+]

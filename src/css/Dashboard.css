@@ -1,0 +1,39 @@
+.dashboard-welcome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.dashboard-paths {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dashboard-window-btn {
+    color: white;
+}
+
+.dashboard-window-btn:hover {
+    background-color: #1f5506;
+    color: white;
+}
+
+.dashboard-path-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: all .2s ease-in-out;
+}
+
+.dashboard-path-container:hover {
+    transform: scale(1.1);
+}
+
+.dashboard-image {
+    margin-top: 25px;
+    width: 600px;
+    height: 350px;
+}
