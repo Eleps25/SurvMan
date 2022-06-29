@@ -43,7 +43,7 @@ class Login extends Component {
         return (
             <div className="login-body">
                 <div className="login-main">
-                    <img src={logo} alt="Logo společnosti SurvMan" style={{ width: "25vw", borderRadius: '0.3em' }} />
+                    <img src={logo} alt="Logo společnosti" style={{ width: "25vw", borderRadius: '0.3em' }} />
                     <p className="fw-bold">Zadejte prosím vaše přihlašovací údaje</p>
                     {this.state.isLoggedIn && <Navigate to="/dashboard" replace={true} />}
                     <form onSubmit={this.handleSubmit} className="login-form">
