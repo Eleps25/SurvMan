@@ -24,7 +24,7 @@ class Dashboard extends Component {
                                 className="textcolor-primary-new text-light fs-2"
                                 style={{ textDecoration: "none" }}>Dotazníky</Link>
                         </button>
-                        <img src={QuestImage} className="dashboard-image" />
+                        <img src={QuestImage} className="dashboard-image" alt="Obrázek dotazníku" />
                     </div>
                     <div className="dashboard-path-container">
                         <button className="btn bgcolor-primary-new dashboard-window-btn">
@@ -33,7 +33,7 @@ class Dashboard extends Component {
                                 className="textcolor-primary-new text-light fs-2"
                                 style={{ textDecoration: "none" }}>Uživatelé</Link>
                         </button>
-                        <img src={UsersImage} className="dashboard-image" />
+                        <img src={UsersImage} className="dashboard-image" alt="Obrázek uživatelů" />
                     </div>
                 </div>
                 <Footer />
