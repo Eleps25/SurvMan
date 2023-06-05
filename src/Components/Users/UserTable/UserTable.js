@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import UserDetail from "./UserDetail";
-import "./css/NewColors.css";
-import "./css/ModalWindows.css";
+import UserDetail from "../UserDetail/index";
+import "../../../css/NewColors.css";
+import "../../../css/ModalWindows.css";
 
 const UserTable = (props) => {
   const [stateStatus, setStateStatus] = useState({

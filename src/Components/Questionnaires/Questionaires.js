@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Footer from "./Footer";
-import QuestionaireTable from "./QuestionaireTable";
-import Header from "./Header";
-import questionnairesData from "./sources/Questionnaires.json";
-import "./css/NewColors.css";
+import Footer from "../Footer/index";
+import QuestionaireTable from "./QuestionnaireTable/index";
+import Header from "../Header/Header";
+import questionnairesData from "../../sources/Questionnaires.json";
+import "../../css/NewColors.css";
 
 const Questionaires = () => {
   const [activeQuestData, setActiveQuestData] = useState([]);

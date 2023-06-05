@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import logo from "./sources/Logo.PNG";
+import logo from "../../sources/Logo.PNG";
 import { Navigate, NavLink } from "react-router-dom";
-import "./css/Header.css";
-import "./css/NewColors.css";
+import "../../css/Header.css";
+import "../../css/NewColors.css";
 
 const Header = () => {
   const [logOff, setLogOff] = useState(false);

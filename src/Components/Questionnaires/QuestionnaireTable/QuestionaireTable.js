@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import QuestionaireDetail from "./QuestionaireDetail";
-import "./css/NewColors.css";
+import QuestionaireDetail from "../QuestionnaireDetail/index";
+import "../../../css/NewColors.css";
 
 const QuestionaireTable = (props) => {
   const [stateStatus, setStateStatus] = useState({
