@@ -5,7 +5,7 @@ import Users from './Users';
 import { Route, Routes } from "react-router-dom";
 
 
-function App() {
+const App = () => {
   return (
     <div>
       <Routes>
