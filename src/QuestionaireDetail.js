@@ -3,7 +3,7 @@ import "./css/ModalWindows.css";
 import "./css/NewColors.css";
 
 const QuestionaireDetail = (props) => {
-  const [questData, setQuestData] = useState(props.data[props.id - 1]);
+  const [questData, setQuestData] = useState(props.data);
 
   const handleUpdate = (evt) => {
     evt.preventDefault();

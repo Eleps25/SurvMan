@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import QuestionaireDetail from "./QuestionaireDetail";
 import "./css/NewColors.css";
 
@@ -7,25 +7,28 @@ const QuestionaireTable = (props) => {
     isEditing: false,
     isViewing: false,
   });
-  const [questId, setQuestId] = useState(1);
+  const [questId, setQuestId] = useState(0);
   const [quests, setQuests] = useState(props.data);
+  const [currentQuestIndex, setCurrentQuestIndex] = useState(0);
 
   const handleEdit = (id) => {
     setQuestId(id);
+    setCurrentQuestIndex(quests.findIndex(quest => quest.questId === id));
     setStateStatus({ isEditing: true, isViewing: false });
   };
 
   const handleView = (id) => {
     setQuestId(id);
+    setCurrentQuestIndex(quests.findIndex(quest => quest.questId === id));
     setStateStatus({ isEditing: false, isViewing: true });
   };
 
   const handleUpdate = (id, change) => {
-    const updatedQuests = quests.map((ch) => {
-      if (ch.activeQuestID === id) {
+    const updatedQuests = quests.map((quest) => {
+      if (quest.questId === id) {
         return { ...change };
       }
-      return ch;
+      return quest;
     });
     setQuests(updatedQuests);
     alert("Úspěšně uloženo");
@@ -34,6 +37,10 @@ const QuestionaireTable = (props) => {
   const handleClose = () => {
     setStateStatus({ isEditing: false, isViewing: false });
   };
+
+  useEffect(()=> {
+    setQuests(props.data);
+  },[props]);
 
   return (
     <div className="px-3 py-2 mb-3 mx-auto">
@@ -52,7 +59,7 @@ const QuestionaireTable = (props) => {
           <tbody>
             {quests.map((item) => {
               return (
-                <tr key={Math.random()}>
+                <tr key={item.questId}>
                   <td className="pt-3 fw-bold">{item.name}</td>
                   <td className="pt-3">{item.date}</td>
                   <td>
@@ -76,7 +83,7 @@ const QuestionaireTable = (props) => {
                       <i
                         className="pt-1 las la-pen"
                         style={{ fontSize: "32px" }}
-                        onClick={() => handleEdit(item.activeQuestID)}
+                        onClick={() => handleEdit(item.questId)}
                       />
                       <i
                         className="pt-1 las la-trash"
@@ -85,7 +92,7 @@ const QuestionaireTable = (props) => {
                       <i
                         className="pt-1 las la-info-circle"
                         style={{ fontSize: "32px" }}
-                        onClick={() => handleView(item.activeQuestID)}
+                        onClick={() => handleView(item.questId)}
                       />
                     </td>
                   ) : (
@@ -97,7 +104,7 @@ const QuestionaireTable = (props) => {
                       <i
                         className="px-2 pt-1 las la-info-circle"
                         style={{ fontSize: "32px" }}
-                        onClick={() => handleView(item.completeQuestID)}
+                        onClick={() => handleView(item.questId)}
                       />
                     </td>
                   )}
@@ -108,7 +115,7 @@ const QuestionaireTable = (props) => {
         </table>
         {stateStatus.isEditing ? (
           <QuestionaireDetail
-            data={quests}
+            data={quests[currentQuestIndex]}
             isEditing={stateStatus.isEditing}
             id={questId}
             handleUpdate={handleUpdate}
@@ -117,7 +124,7 @@ const QuestionaireTable = (props) => {
         ) : null}
         {stateStatus.isViewing ? (
           <QuestionaireDetail
-            data={quests}
+            data={quests[currentQuestIndex]}
             isEditing={stateStatus.isEditing}
             id={questId}
             handleUpdate={handleUpdate}
