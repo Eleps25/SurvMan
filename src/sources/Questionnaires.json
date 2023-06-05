@@ -1,0 +1,56 @@
+[
+    {
+        "questId": 1,
+        "name": "Spokojenost zákazníků s novou službou",
+        "date": "01. 05. 2015 - 01. 09. 2015",
+        "asked": 50,
+        "responded": 30,
+        "description": "První výzkumný vzorek",
+        "isCompleted": false
+    },
+    {
+        "questId": 2,
+        "name": "Celková spokojenost zákazníků",
+        "date": "01. 10. 2017 - 01. 12. 2017",
+        "asked": 63,
+        "responded": 19,
+        "description": "Jak jsou zákaznici spokojeni s našimi službami",
+        "isCompleted": true
+    },
+    {
+        "questId": 3,
+        "name": "Využívanost nové služby",
+        "date": "05. 04. 2012 - 28. 09. 2012",
+        "asked": 150,
+        "responded": 134,
+        "description": "Jak využívají uživatelé novou službu, četnost, odezva",
+        "isCompleted": true
+    },
+    {
+        "questId": 4,
+        "name": "Spokojenost s umístěním odběrových míst",
+        "date": "12. 03. 2020 - 19. 08. 2020",
+        "asked": 630,
+        "responded": 590,
+        "description": "Spokojenost + zpětná vazba",
+        "isCompleted": false
+    },
+    {
+        "questId": 5,
+        "name": "Digitalizace služeb",
+        "date": "11. 10. 2015 - 01. 11. 2015",
+        "asked": 37,
+        "responded": 10,
+        "description": "Názory občanů",
+        "isCompleted": true
+    },
+    {
+        "questId": 6,
+        "name": "Spokojenost s prodejci",
+        "date": "26. 04. 2018 - 28. 09. 2018",
+        "asked": 84,
+        "responded": 60,
+        "description": "Zpětná vazba zákazníků na naše zaměstnance",
+        "isCompleted": false
+    }
+]
