@@ -1,7 +1,7 @@
-import Dashboard from "./Dashboard";
-import Login from "./Login.js";
-import Questionaires from './Questionaires';
-import Users from './Users';
+import Dashboard from "./Components/Dashboard/index";
+import Login from "./Components/Login/index";
+import Questionaires from './Components/Questionnaires/index';
+import Users from './Components/Users/index';
 import { Route, Routes } from "react-router-dom";
 
 

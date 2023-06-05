@@ -1,12 +1,11 @@
 import React from "react";
-import UserTable from "./UserTable";
-import UsersData from "./sources/UsersData.json";
-import Footer from "./Footer";
-import Header from "./Header";
-import "./css/NewColors.css";
+import UserTable from "./UserTable/index";
+import UsersData from "../../sources/UsersData.json";
+import Footer from "../Footer/index";
+import Header from "../Header/index";
+import "../../css/NewColors.css";
 
 const Users = () => {
-  console.log(UsersData);
   return (
     <div>
       <Header />

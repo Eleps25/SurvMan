@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import logo from "./sources/Logo.PNG";
+import logo from "../../sources/Logo.PNG";
 import { Navigate } from "react-router-dom";
-import "./css/Login.css";
-import "./css/NewColors.css";
+import "../../css/Login.css";
+import "../../css/NewColors.css";
 
 const RIGHT_PASSWORD = "admin123";
 const RIGHT_USERNAME = "admin";

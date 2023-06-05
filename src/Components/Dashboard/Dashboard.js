@@ -1,11 +1,11 @@
 import React from "react";
-import Footer from "./Footer";
-import Header from "./Header";
+import Footer from "../Footer/index";
+import Header from "../Header/Header";
 import { Link } from "react-router-dom";
-import "./css/Dashboard.css";
-import "./css/NewColors.css";
-import QuestImage from "./sources/QuestImg.jpg";
-import UsersImage from "./sources/UsersImg.png";
+import "../../css/Dashboard.css";
+import "../../css/NewColors.css";
+import QuestImage from "../../sources/QuestImg.jpg";
+import UsersImage from "../../sources/UsersImg.png";
 
 const Dashboard = () => {
   return (

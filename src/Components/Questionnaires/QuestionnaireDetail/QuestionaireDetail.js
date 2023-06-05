@@ -1,28 +1,18 @@
 import React, { useState } from "react";
-import "./css/ModalWindows.css";
-import "./css/NewColors.css";
+import "../../../css/ModalWindows.css";
+import "../../../css/NewColors.css";
 
-const UserDetail = (props) => {
-  const [userData, setUserData] = useState(props.data[props.id - 1]);
+const QuestionaireDetail = (props) => {
+  const [questData, setQuestData] = useState(props.data);
 
   const handleUpdate = (evt) => {
     evt.preventDefault();
-    props.handleUpdate(props.id, userData);
+    props.handleUpdate(props.id, questData);
   };
 
   const handleChange = (evt) => {
-    setUserData((prevState) => {
+    setQuestData((prevState) => {
       return { ...prevState, [evt.target.name]: evt.target.value };
-    });
-  };
-
-  const handleChecked = (evt) => {
-    const target = evt.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
-
-    setUserData((prevState) => {
-      return { ...prevState, [name]: value };
     });
   };
 
@@ -34,72 +24,75 @@ const UserDetail = (props) => {
     <div className="modal-window-back">
       <div className="modal-window">
         <div className="modal-window-head">
-          <h3>User Detail</h3>
+          <h3>Quest Detail</h3>
           <h3>
             <i className="las la-times" onClick={handleClose} />
           </h3>
         </div>
         <div className="modal-window-form-div">
-          <form onSubmit={handleUpdate} className="row g-3">
+          <form
+            onSubmit={props.isEditing ? handleUpdate : null}
+            className="row g-3"
+          >
             <div className="col-6">
-              <label htmlFor="user" className="form-label">
+              <label htmlFor="name" className="form-label">
                 {" "}
-                Uživatel
+                Název dotazníku
               </label>
               <input
                 type="text"
                 className="form-control"
-                id="user"
-                name="user"
-                defaultValue={userData.user}
+                id="name"
+                name="name"
+                defaultValue={questData.name}
                 onChange={props.isEditing ? handleChange : null}
                 disabled={props.isEditing ? false : true}
               />
             </div>
             <div className="col-6">
-              <label htmlFor="email" className="form-label">
+              <label htmlFor="date" className="form-label">
                 {" "}
-                E-mail
+                Platnost
               </label>
               <input
                 type="text"
                 className="form-control"
-                id="email"
-                name="email"
-                defaultValue={userData.email}
+                id="date"
+                name="date"
+                defaultValue={questData.date}
                 onChange={props.isEditing ? handleChange : null}
                 disabled={props.isEditing ? false : true}
               />
             </div>
             <div className="col-6">
-              <label htmlFor="phone" className="form-label">
+              <label htmlFor="asked" className="form-label">
                 {" "}
-                Telefon
+                Osloveno
               </label>
               <input
                 type="text"
                 className="form-control"
-                id="phone"
-                name="phone"
-                defaultValue={userData.phone}
+                id="asked"
+                name="asked"
+                defaultValue={questData.asked}
                 onChange={props.isEditing ? handleChange : null}
                 disabled={props.isEditing ? false : true}
               />
             </div>
-            <div className="col-12">
+            <div className="col-6">
+              <label htmlFor="responded" className="form-label">
+                {" "}
+                Vyplněno
+              </label>
               <input
-                type="checkbox"
-                className="form-check-input"
-                id="twoF"
-                checked={userData.twoF}
-                name="twoF"
-                onChange={props.isEditing ? handleChecked : null}
+                type="text"
+                className="form-control"
+                id="responded"
+                name="responded"
+                defaultValue={questData.responded}
+                onChange={props.isEditing ? handleChange : null}
                 disabled={props.isEditing ? false : true}
               />
-              <label htmlFor="twoF" className="form-check-label">
-                {" "}
-                2F
-              </label>
             </div>
             <div className="col-12">
               <label htmlFor="description" className="form-label">
@@ -110,13 +103,13 @@ const UserDetail = (props) => {
                 id="description"
                 className="form-control"
                 name="description"
-                defaultValue={userData.description}
+                defaultValue={questData.description}
                 onChange={props.isEditing ? handleChange : null}
                 disabled={props.isEditing ? false : true}
               />
             </div>
             {props.isEditing && (
-              <button className="btn bgcolor-primary-new modal-window-btn">
+              <button className=" btn bgcolor-primary-new modal-window-btn">
                 Uložit
               </button>
             )}
@@ -127,4 +120,4 @@ const UserDetail = (props) => {
   );
 };
 
-export default UserDetail;
+export default QuestionaireDetail;
