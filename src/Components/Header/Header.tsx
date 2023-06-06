@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from "../../sources/Logo.PNG";
+import logo from "../../sources/Logo.PNG"
 import { Navigate, NavLink } from "react-router-dom";
 import "../../css/Header.css";
 import "../../css/NewColors.css";
@@ -18,7 +18,7 @@ const Header = () => {
           <img
             src={logo}
             alt="Logo SurMan"
-            widt="64"
+            width="64"
             height="64"
             style={{ borderRadius: "0.3em" }}
           />

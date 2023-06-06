@@ -1,3 +1,4 @@
+import React from "react";
 import Dashboard from "./Components/Dashboard/index";
 import Login from "./Components/Login/index";
 import Questionaires from './Components/Questionnaires/index';
@@ -9,10 +10,10 @@ const App = () => {
   return (
     <div>
       <Routes>
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/dashboard" element={<Dashboard />} />
-        <Route exact path="/questionnaire-manager" element={<Questionaires />} />
-        <Route exact path="/user-manager" element={<Users />} />
+        <Route  path="/login" element={<Login />} />
+        <Route  path="/dashboard" element={<Dashboard />} />
+        <Route  path="/questionnaire-manager" element={<Questionaires />} />
+        <Route  path="/user-manager" element={<Users />} />
       </Routes>
     </div>
   );
