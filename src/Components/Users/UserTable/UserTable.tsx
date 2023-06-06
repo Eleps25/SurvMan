@@ -3,36 +3,45 @@ import UserDetail from "../UserDetail/index";
 import "../../../css/NewColors.css";
 import "../../../css/ModalWindows.css";
 
-const UserTable = (props) => {
-  const [stateStatus, setStateStatus] = useState({
+export interface IUser {
+  userID: number,
+  user: string,
+  email: string,
+  phone: string,
+  twoF: boolean,
+  description: string
+}
+
+const UserTable: React.FC<{userName: string, data: IUser[]}> = (props) => {
+  const [stateStatus, setStateStatus] = useState<{isEditing: boolean, isViewing: boolean}>({
     isEditing: false,
     isViewing: false,
   });
-  const [userId, setUserId] = useState(1);
-  const [users, setUsers] = useState(props.data);
+  const [userId, setUserId] = useState<number>(1);
+  const [users, setUsers] = useState<IUser[]>(props.data);
 
-  const handleEdit = (id) => {
+  const handleEdit = (id: number): void => {
     setStateStatus({ isEditing: true, isViewing: false });
     setUserId(id);
   };
 
-  const handleView = (id) => {
+  const handleView = (id: number): void => {
     setStateStatus({ isEditing: false, isViewing: true });
     setUserId(id);
   };
 
-  const handleUpdate = (id, change) => {
-    const updatedUser = users.map((ch) => {
-      if (ch.userID === id) {
-        return { ...change };
+  const handleUpdate = (id: number, userToChange: IUser): void => {
+    const updatedUser = users.map((person: IUser) => {
+      if (person.userID === id) {
+        return { ...userToChange };
       }
-      return ch;
+      return person;
     });
     setUsers(updatedUser);
     alert("Úspěšně uloženo");
   };
 
-  const handleClose = () => {
+  const handleClose = (): void => {
     setStateStatus({ isEditing: false, isViewing: false });
   };
 
@@ -50,7 +59,7 @@ const UserTable = (props) => {
           </tr>
         </thead>
         <tbody>
-          {users.map((item) => {
+          {users.map((item: IUser) => {
             return (
               <tr key={item.userID}>
                 <td className="fw-bold">{item.user}</td>

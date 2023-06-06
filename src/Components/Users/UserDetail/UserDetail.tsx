@@ -2,21 +2,32 @@ import React, { useState } from "react";
 import "../../../css/ModalWindows.css";
 import "../../../css/NewColors.css";
 
-const UserDetail = (props) => {
+import { IUser } from "../UserTable/UserTable";
+
+interface IUserDetail {
+  data: IUser[],
+  isEditing: boolean,
+  id: number,
+  handleUpdate: Function,
+  handleClose: Function,
+  className: string
+}
+
+const UserDetail: React.FC<IUserDetail> = (props) => {
   const [userData, setUserData] = useState(props.data[props.id - 1]);
 
-  const handleUpdate = (evt) => {
+  const handleUpdate = (evt: any) => {
     evt.preventDefault();
     props.handleUpdate(props.id, userData);
   };
 
-  const handleChange = (evt) => {
+  const handleChange = (evt: any) => {
     setUserData((prevState) => {
       return { ...prevState, [evt.target.name]: evt.target.value };
     });
   };
 
-  const handleChecked = (evt) => {
+  const handleChecked = (evt: any) => {
     const target = evt.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
@@ -52,7 +63,7 @@ const UserDetail = (props) => {
                 id="user"
                 name="user"
                 defaultValue={userData.user}
-                onChange={props.isEditing ? handleChange : null}
+                onChange={props.isEditing ? handleChange : undefined}
                 disabled={props.isEditing ? false : true}
               />
             </div>
@@ -67,7 +78,7 @@ const UserDetail = (props) => {
                 id="email"
                 name="email"
                 defaultValue={userData.email}
-                onChange={props.isEditing ? handleChange : null}
+                onChange={props.isEditing ? handleChange : undefined}
                 disabled={props.isEditing ? false : true}
               />
             </div>
@@ -82,7 +93,7 @@ const UserDetail = (props) => {
                 id="phone"
                 name="phone"
                 defaultValue={userData.phone}
-                onChange={props.isEditing ? handleChange : null}
+                onChange={props.isEditing ? handleChange : undefined}
                 disabled={props.isEditing ? false : true}
               />
             </div>
@@ -93,7 +104,7 @@ const UserDetail = (props) => {
                 id="twoF"
                 checked={userData.twoF}
                 name="twoF"
-                onChange={props.isEditing ? handleChecked : null}
+                onChange={props.isEditing ? handleChecked : undefined}
                 disabled={props.isEditing ? false : true}
               />
               <label htmlFor="twoF" className="form-check-label">
@@ -111,7 +122,7 @@ const UserDetail = (props) => {
                 className="form-control"
                 name="description"
                 defaultValue={userData.description}
-                onChange={props.isEditing ? handleChange : null}
+                onChange={props.isEditing ? handleChange : undefined}
                 disabled={props.isEditing ? false : true}
               />
             </div>
