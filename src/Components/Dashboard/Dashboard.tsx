@@ -7,7 +7,7 @@ import "../../css/NewColors.css";
 import QuestImage from "../../sources/QuestImg.jpg";
 import UsersImage from "../../sources/UsersImg.png";
 
-const Dashboard = () => {
+const Dashboard: React.FC = () => {
   return (
     <div>
       <Header />

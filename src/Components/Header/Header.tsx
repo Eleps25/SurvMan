@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import logo from "../../sources/Logo.PNG";
+import logo from "../../sources/Logo.PNG"
 import { Navigate, NavLink } from "react-router-dom";
 import "../../css/Header.css";
 import "../../css/NewColors.css";
 
-const Header = () => {
+const Header: React.FC = () => {
   const [logOff, setLogOff] = useState(false);
 
   const handleLogout = () => {
@@ -18,14 +18,13 @@ const Header = () => {
           <img
             src={logo}
             alt="Logo SurMan"
-            widt="64"
+            width="64"
             height="64"
             style={{ borderRadius: "0.3em" }}
           />
           <ul className="nav nav-pills fw-bold">
             <li className="nav-item">
               <NavLink
-                exact="true"
                 to="/dashboard"
                 className="nav-link textcolor-primary-new"
               >
@@ -34,7 +33,6 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                exact="true"
                 to="/questionnaire-manager"
                 className="nav-link textcolor-primary-new"
               >
@@ -43,7 +41,6 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                exact="true"
                 to="/user-manager"
                 className="nav-link textcolor-primary-new"
               >

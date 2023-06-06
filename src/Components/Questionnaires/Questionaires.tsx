@@ -5,13 +5,23 @@ import Header from "../Header/Header";
 import questionnairesData from "../../sources/Questionnaires.json";
 import "../../css/NewColors.css";
 
-const Questionaires = () => {
-  const [activeQuestData, setActiveQuestData] = useState([]);
-  const [completedQuestData, setCompletedQuestData] = useState([]);
+export interface IQuestionnaire {
+  questId: number,
+  name: string,
+  date: string,
+  asked: number,
+  responded: number,
+  description: string,
+  isCompleted: boolean
+}
+
+const Questionaires: React.FC = () => {
+  const [activeQuestData, setActiveQuestData] = useState<IQuestionnaire[]|[]>([]);
+  const [completedQuestData, setCompletedQuestData] = useState<IQuestionnaire[]|[]>([]);
 
   const filterQuestData = () => {
-    setActiveQuestData(questionnairesData.filter(quest => quest.isCompleted === true));
-    setCompletedQuestData(questionnairesData.filter(quest => quest.isCompleted === false));
+    setActiveQuestData(questionnairesData.filter((quest: IQuestionnaire) => quest.isCompleted === true));
+    setCompletedQuestData(questionnairesData.filter((quest: IQuestionnaire) => quest.isCompleted === false));
   };
 
   useEffect(() => {
@@ -32,7 +42,6 @@ const Questionaires = () => {
         data={completedQuestData}
         isEditable={false}
       />
-      <button onClick={filterQuestData}>Click</button>
       <Footer />
     </div>
   );
