@@ -1,6 +1,6 @@
 import React from "react";
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-2 mx-2 border-top fixed-bottom">
       <p className="col-3 mb-0 text-muted">©2021</p>

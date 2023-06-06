@@ -7,7 +7,7 @@ import "../../css/NewColors.css";
 const RIGHT_PASSWORD = "admin123";
 const RIGHT_USERNAME = "admin";
 
-const Login = () => {
+const Login: React.FC = () => {
   const [userInputData, setUserInputData] = useState({
     username: "",
     password: "",

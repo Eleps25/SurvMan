@@ -4,7 +4,7 @@ import { Navigate, NavLink } from "react-router-dom";
 import "../../css/Header.css";
 import "../../css/NewColors.css";
 
-const Header = () => {
+const Header: React.FC = () => {
   const [logOff, setLogOff] = useState(false);
 
   const handleLogout = () => {
