@@ -7,7 +7,7 @@ import "../../css/NewColors.css";
 const RIGHT_PASSWORD = "admin123";
 const RIGHT_USERNAME = "admin";
 
-const Login = (props) => {
+const Login = () => {
   const [userInputData, setUserInputData] = useState({
     username: "",
     password: "",
@@ -18,7 +18,7 @@ const Login = (props) => {
     setIsLoggedIn((prevState) => !prevState);
   };
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = (evt: any) => {
     evt.preventDefault();
     if (
       userInputData.username !== RIGHT_USERNAME ||
@@ -31,7 +31,7 @@ const Login = (props) => {
     }
   };
 
-  const handleChange = (evt) => {
+  const handleChange = (evt: any) => {
     setUserInputData((prevData) => {
       return { ...prevData, [evt.target.name]: evt.target.value };
     });
@@ -53,7 +53,7 @@ const Login = (props) => {
               type="text"
               name="username"
               placeholder="Uživatelské jméno"
-              required="required"
+              required
               value={userInputData.username}
               onChange={handleChange}
               className="login-form-item"
@@ -62,7 +62,7 @@ const Login = (props) => {
               type="password"
               name="password"
               placeholder="Heslo"
-              required="required"
+              required
               value={userInputData.password}
               onChange={handleChange}
               className="login-form-item"
