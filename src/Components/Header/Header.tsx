@@ -25,7 +25,6 @@ const Header = () => {
           <ul className="nav nav-pills fw-bold">
             <li className="nav-item">
               <NavLink
-                exact="true"
                 to="/dashboard"
                 className="nav-link textcolor-primary-new"
               >
@@ -34,7 +33,6 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                exact="true"
                 to="/questionnaire-manager"
                 className="nav-link textcolor-primary-new"
               >
@@ -43,7 +41,6 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                exact="true"
                 to="/user-manager"
                 className="nav-link textcolor-primary-new"
               >
