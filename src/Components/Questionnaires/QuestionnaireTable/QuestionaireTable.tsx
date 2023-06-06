@@ -1,29 +1,31 @@
 import React, { useState, useEffect } from "react";
 import QuestionaireDetail from "../QuestionnaireDetail/index";
-import "../../../css/NewColors.css";
 
-const QuestionaireTable = (props) => {
-  const [stateStatus, setStateStatus] = useState({
+import "../../../css/NewColors.css";
+import { IQuestionnaire } from "../Questionaires";
+
+const QuestionaireTable: React.FC<{questName: string, data:IQuestionnaire[], isEditable: boolean}> = (props) => {
+  const [stateStatus, setStateStatus] = useState<{isEditing: boolean, isViewing: boolean}>({
     isEditing: false,
     isViewing: false,
   });
-  const [questId, setQuestId] = useState(0);
-  const [quests, setQuests] = useState(props.data);
-  const [currentQuestIndex, setCurrentQuestIndex] = useState(0);
+  const [questId, setQuestId] = useState<number>(0);
+  const [quests, setQuests] = useState<IQuestionnaire[]>(props.data);
+  const [currentQuestIndex, setCurrentQuestIndex] = useState<number>(0);
 
-  const handleEdit = (id) => {
+  const handleEdit = (id: number): void => {
     setQuestId(id);
     setCurrentQuestIndex(quests.findIndex(quest => quest.questId === id));
     setStateStatus({ isEditing: true, isViewing: false });
   };
 
-  const handleView = (id) => {
+  const handleView = (id: number): void => {
     setQuestId(id);
     setCurrentQuestIndex(quests.findIndex(quest => quest.questId === id));
     setStateStatus({ isEditing: false, isViewing: true });
   };
 
-  const handleUpdate = (id, change) => {
+  const handleUpdate = (id: number, change: IQuestionnaire): void => {
     const updatedQuests = quests.map((quest) => {
       if (quest.questId === id) {
         return { ...change };
@@ -34,7 +36,7 @@ const QuestionaireTable = (props) => {
     alert("Úspěšně uloženo");
   };
 
-  const handleClose = () => {
+  const handleClose = (): void => {
     setStateStatus({ isEditing: false, isViewing: false });
   };
 

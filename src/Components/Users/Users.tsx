@@ -5,7 +5,7 @@ import Footer from "../Footer/index";
 import Header from "../Header/index";
 import "../../css/NewColors.css";
 
-const Users = () => {
+const Users: React.FC = () => {
   return (
     <div>
       <Header />

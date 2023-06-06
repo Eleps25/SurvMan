@@ -1,22 +1,32 @@
 import React, { useState } from "react";
 import "../../../css/ModalWindows.css";
+
 import "../../../css/NewColors.css";
+import { IQuestionnaire } from "../Questionaires";
 
-const QuestionaireDetail = (props) => {
-  const [questData, setQuestData] = useState(props.data);
+interface IQuestionnaireDetail {
+  data: IQuestionnaire,
+  isEditing: boolean,
+  id: number,
+  handleUpdate: Function,
+  handleClose: Function
+}
 
-  const handleUpdate = (evt) => {
+const QuestionaireDetail: React.FC<IQuestionnaireDetail> = (props) => {
+  const [questData, setQuestData] = useState<IQuestionnaire>(props.data);
+
+  const handleUpdate = (evt: any): void => {
     evt.preventDefault();
     props.handleUpdate(props.id, questData);
   };
 
-  const handleChange = (evt) => {
+  const handleChange = (evt: any): void => {
     setQuestData((prevState) => {
       return { ...prevState, [evt.target.name]: evt.target.value };
     });
   };
 
-  const handleClose = () => {
+  const handleClose = (): void => {
     props.handleClose();
   };
 
@@ -31,7 +41,7 @@ const QuestionaireDetail = (props) => {
         </div>
         <div className="modal-window-form-div">
           <form
-            onSubmit={props.isEditing ? handleUpdate : null}
+            onSubmit={props.isEditing ? handleUpdate : undefined}
             className="row g-3"
           >
             <div className="col-6">
@@ -45,7 +55,7 @@ const QuestionaireDetail = (props) => {
                 id="name"
                 name="name"
                 defaultValue={questData.name}
-                onChange={props.isEditing ? handleChange : null}
+                onChange={props.isEditing ? handleChange : undefined}
                 disabled={props.isEditing ? false : true}
               />
             </div>
@@ -60,7 +70,7 @@ const QuestionaireDetail = (props) => {
                 id="date"
                 name="date"
                 defaultValue={questData.date}
-                onChange={props.isEditing ? handleChange : null}
+                onChange={props.isEditing ? handleChange : undefined}
                 disabled={props.isEditing ? false : true}
               />
             </div>
@@ -75,7 +85,7 @@ const QuestionaireDetail = (props) => {
                 id="asked"
                 name="asked"
                 defaultValue={questData.asked}
-                onChange={props.isEditing ? handleChange : null}
+                onChange={props.isEditing ? handleChange : undefined}
                 disabled={props.isEditing ? false : true}
               />
             </div>
@@ -90,7 +100,7 @@ const QuestionaireDetail = (props) => {
                 id="responded"
                 name="responded"
                 defaultValue={questData.responded}
-                onChange={props.isEditing ? handleChange : null}
+                onChange={props.isEditing ? handleChange : undefined}
                 disabled={props.isEditing ? false : true}
               />
             </div>
@@ -104,7 +114,7 @@ const QuestionaireDetail = (props) => {
                 className="form-control"
                 name="description"
                 defaultValue={questData.description}
-                onChange={props.isEditing ? handleChange : null}
+                onChange={props.isEditing ? handleChange : undefined}
                 disabled={props.isEditing ? false : true}
               />
             </div>
