@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import UserDetail from "../UserDetail/index";
 import "../../../css/NewColors.css";
 import "../../../css/ModalWindows.css";
@@ -44,6 +44,10 @@ const UserTable: React.FC<{userName: string, data: IUser[]}> = (props) => {
   const handleClose = (): void => {
     setStateStatus({ isEditing: false, isViewing: false });
   };
+
+  useEffect(() => {
+    setUsers(props.data);
+  }, [props])
 
   return (
     <div className="px-3 py-2 mb-3 mx-auto">
