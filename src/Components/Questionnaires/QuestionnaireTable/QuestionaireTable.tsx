@@ -36,6 +36,16 @@ const QuestionaireTable: React.FC<{questName: string, data:IQuestionnaire[], isE
     alert("Úspěšně uloženo");
   };
 
+  const handleDelete = (id: number, questName: string): void => {
+    const updatedQuests = quests.filter((quest) => {
+      if (quest.questId !== id) {
+        return quest;
+      }
+    });
+    setQuests(updatedQuests);
+    alert(`Dotazník "${questName}" úspěšně odebrán`);
+  };
+
   const handleClose = (): void => {
     setStateStatus({ isEditing: false, isViewing: false });
   };
@@ -90,6 +100,7 @@ const QuestionaireTable: React.FC<{questName: string, data:IQuestionnaire[], isE
                       <i
                         className="pt-1 las la-trash"
                         style={{ fontSize: "32px" }}
+                        onClick={() => handleDelete(item.questId, item.name)}
                       />
                       <i
                         className="pt-1 las la-info-circle"
@@ -102,6 +113,7 @@ const QuestionaireTable: React.FC<{questName: string, data:IQuestionnaire[], isE
                       <i
                         className="px-2 pt-1 las la-trash"
                         style={{ fontSize: "32px" }}
+                        onClick={() => handleDelete(item.questId, item.name)}
                       />
                       <i
                         className="px-2 pt-1 las la-info-circle"
