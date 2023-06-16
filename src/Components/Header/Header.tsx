@@ -71,7 +71,7 @@ const Header: React.FC = () => {
               </li>
             </ul>
           </div>
-          {logOff && <Navigate to="/login" replace={true} />}
+          {logOff && <Navigate to="/" replace={true} />}
         </div>
       </div>
     </header>
