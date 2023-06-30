@@ -4,9 +4,6 @@ import { Navigate } from "react-router-dom";
 import "../../css/Login.css";
 import "../../css/NewColors.css";
 
-const RIGHT_PASSWORD = "admin123";
-const RIGHT_USERNAME = "admin";
-
 const Login: React.FC = () => {
   const [userInputData, setUserInputData] = useState({
     username: "",
@@ -21,8 +18,8 @@ const Login: React.FC = () => {
   const handleSubmit = (evt: any) => {
     evt.preventDefault();
     if (
-      userInputData.username !== RIGHT_USERNAME ||
-      userInputData.password !== RIGHT_PASSWORD
+      userInputData.username !== process.env.REACT_APP_LOGIN ||
+      userInputData.password !== process.env.REACT_APP_PASSWORD
     ) {
       alert("Zadány špatné přihlašovací údaje");
     } else {
